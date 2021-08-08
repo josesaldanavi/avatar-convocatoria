@@ -1,0 +1,30 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">name</th>
+      <th scope="col">Url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let especie of especies">
+      <th scope="row">{{especie.name}}</th>
+      <td> <button class="btn btn-primary" (click)="showPokemonEspecie(especie.url)">Mostrar</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="container" *ngIf="mostrar==true">
+  <div class="row">
+    <div class="col-12">
+      <ul>
+        <li><img width="340px" src="" alt="" srcset="{{pokemon.getFoto()}}"></li>
+        <li>{{pokemon.getName()}}</li>
+        <li>{{pokemon.getWeight()}}</li>
+        <li>{{pokemon.getBase_experience()}}</li>
+        <li>{{pokemon.getHeight()}}</li>
+        <li *ngFor="let item of habilidades">{{item.habilidad}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
