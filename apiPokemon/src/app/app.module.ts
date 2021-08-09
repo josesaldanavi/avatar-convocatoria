@@ -11,11 +11,11 @@ import { PokemonService } from './pokemones/pokemon.service';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 //rutas
 import { RouterModule,Routes } from '@angular/router';
-import { EvolucionesComponent } from './pokemones/evoluciones/evoluciones/evoluciones.component';
+import { EvolucionesComponent } from './pokemones/evoluciones/evoluciones.component';
 const routes: Routes=[
   {path:'',redirectTo:'/index',pathMatch:'full'},
   {path:'index',component:PokemonesComponent},
-  {path:'evoluciones/:nombre',component:EvolucionesComponent}
+  {path:'evoluciones',component:EvolucionesComponent}
 ]
 @NgModule({
   declarations: [

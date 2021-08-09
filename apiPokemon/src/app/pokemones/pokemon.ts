@@ -1,4 +1,5 @@
 export class Pokemon{
+    private id:number=0;
     private base_experience: number=0;
     private name: string='';
     private height: number=0;
@@ -6,6 +7,12 @@ export class Pokemon{
     private foto: string='';
     private tipo: string[]=[];
 
+    public setid(id:number) {
+        this.id=id;
+    }
+    public getid() {
+        return this.id;
+    }
     public setName(name:string) {
         this.name=name;
     }

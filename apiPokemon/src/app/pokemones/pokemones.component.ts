@@ -73,6 +73,7 @@ export class PokemonesComponent implements OnInit {
         /**
          * Comenzamos a llenar el pokemon instanciado
          */
+        this.pokemon.setid(data.id);
         this.pokemon.setName(data.name);
         this.pokemon.setWeight(data.weight);
         this.pokemon.setBase_experience(data.base_experience);
@@ -116,7 +117,7 @@ export class PokemonesComponent implements OnInit {
   }
 
   /**/
-  rutaEvolucion(nombre:string){
+  rutaEvolucion(nombre:number){
     this.ruta.navigate(['/evoluciones',nombre]);
   }
 
