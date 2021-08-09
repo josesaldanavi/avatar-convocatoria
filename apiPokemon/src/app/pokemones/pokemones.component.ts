@@ -27,6 +27,7 @@ export class PokemonesComponent implements OnInit {
 
   //Nos muestra card;
   mostrar: boolean=false;
+  carga: boolean=false;
 
   //con esta variable pasaremos nuestra url para recuperar a los pokemones que mostraremos
   urlpokTip: string='';
@@ -55,6 +56,8 @@ export class PokemonesComponent implements OnInit {
    * Este metodo nos mostrara el pokemon al que llamamos remplazando la url de entrada 
    */
   showPokemonEspecie(urlnew:string){
+    this.mostrar=false;
+    this.carga=true;
     //explicado más abajo
     this.reemplazandoHabilidades(this.habilidades.length,this.habilidades);
     this.reemplazandoHabilidades(this.estadisticas.length,this.estadisticas);
@@ -90,7 +93,11 @@ export class PokemonesComponent implements OnInit {
         });
       }
     )
-    this.mostrar=true;
+    //esperar a que se presente el pokemon
+    setTimeout(()=>{                        
+      this.mostrar=true;                         
+      this.carga=false;
+    }, 500);
   }
 
   /*
