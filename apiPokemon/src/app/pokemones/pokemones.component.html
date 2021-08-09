@@ -1,30 +1,74 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">name</th>
-      <th scope="col">Url</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let especie of especies">
-      <th scope="row">{{especie.name}}</th>
-      <td> <button class="btn btn-primary" (click)="showPokemonEspecie(especie.url)">Mostrar</button></td>
-    </tr>
-  </tbody>
-</table>
-
-
-<div class="container" *ngIf="mostrar==true">
-  <div class="row">
-    <div class="col-12">
-      <ul>
-        <li><img width="340px" src="" alt="" srcset="{{pokemon.getFoto()}}"></li>
-        <li>{{pokemon.getName()}}</li>
-        <li>{{pokemon.getWeight()}}</li>
-        <li>{{pokemon.getBase_experience()}}</li>
-        <li>{{pokemon.getHeight()}}</li>
-        <li *ngFor="let item of habilidades">{{item.habilidad}}</li>
-      </ul>
+<div class="row">
+  <div class="col-md-4">
+    <div class="contenedorPokebolas">
+      <img src="../assets/img/ic_pokebola.png" width="100%" alt="pokebola">
+      <h1>Especie de Pokemones</h1>
+      <img src="../assets/img/ic_pokebola.png" width="100%" alt="pokebola">
     </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Especie de Pokemon</th>
+          <th scope="col">Datos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Limitando la entrada de data en el table - Se mostrara solo 10 elementos y luego se paginara si este tiene data de sobra-->
+        <tr *ngFor="let especie of especies | paginate: { itemsPerPage: 10, currentPage: page}">
+          <th scope="row">{{especie.name}}</th>
+          <td> <button class="btn btn-primary" (click)="showPokemonEspecie(especie.url)">Mostrar</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Control de la Paginacion con sus atributos (page se hace referencia a lo de arriba en el nfor)-->
+    <pagination-controls 
+    (pageChange)="page = $event"
+    previousLabel="Anterior"
+    nextLabel="Siguiente"
+    >
+    </pagination-controls>
+  </div>
+  <div class="col-md-8 d-flex justify-content-center align-items-center">
+    <div class="card-pokemon" *ngIf="mostrar==true">
+      <div class="card-pokemon-img">
+        <img width="100%" src="" alt="Pokemon" srcset="{{pokemon.getFoto()}}">
+      </div>
+      <div class="car-info-pokemon">
+        <p>{{pokemon.getName()}}</p>
+        <div class="container-fluid">
+
+          <div class="row">
+            <div class="col-6"  *ngFor="let item of estadisticas">
+              <div class="car-info-pokemon-stats">
+                <img src="" alt="">
+                <p>{{item.getBaseStat()}}</p>
+              </div>
+            </div>
+            <div class="col-6 d-none">
+              <div class="car-info-pokemon-stats">
+                <img src="" alt="">
+                <p>{{pokemon.getWeight()}}</p>
+              </div>
+            </div>
+            <div class="col-6 d-none">
+              <div class="car-info-pokemon-stats">
+                <img src="" alt="">
+                <p>{{pokemon.getBase_experience()}}</p>
+              </div>
+            </div>
+            <div class="col-6 d-none">
+              <div class="car-info-pokemon-stats">
+                <img src="" alt="">
+                <p>{{pokemon.getHeight()}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <li *ngFor="let item of habilidades" class="d-none">{{item.habilidad}}</li>
+    </ul>
   </div>
 </div>
+<!--[ngClass]="clase1ccs: condicion ,(representa como un else) clase2css:condicion"-->

@@ -1,12 +1,10 @@
-import { newArray } from "@angular/compiler/src/util";
-import { HabilidadesPokemon } from "./habilidades/habilidades-pokemon";
-
 export class Pokemon{
     private base_experience: number=0;
     private name: string='';
     private height: number=0;
     private weight: number=0;
     private foto: string='';
+    private tipo: string[]=[];
 
     public setName(name:string) {
         this.name=name;
@@ -42,5 +40,11 @@ export class Pokemon{
         return this.foto;
     }
     
+    public setTipos(tipo:string[]) {
+        this.tipo=tipo;
+    }
+    public getTipos() {
+        return this.tipo;
+    }
 
 }
