@@ -3,6 +3,9 @@ import { HabilidadesPokemon } from './habilidades/habilidades-pokemon';
 import { Pokemon } from './pokemon';
 import { PokemonService } from './pokemon.service';
 import { Estadistica } from './estadisticas/estadistica';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-pokemones',
   templateUrl: './pokemones.component.html',
@@ -37,7 +40,8 @@ export class PokemonesComponent implements OnInit {
   */
   especies: any[]=[];
   //en nuestro constructor hacemos referencia a nuestro servicioPokemon
-  constructor(private pokservice: PokemonService) { }
+  constructor(private pokservice: PokemonService,
+              private ruta:Router) { }
 
   ngOnInit(): void {
     /*ingresamos al metodo getEspecies para capturar todoas las especies de pokemones
@@ -112,6 +116,8 @@ export class PokemonesComponent implements OnInit {
   }
 
   /**/
-
+  rutaEvolucion(nombre:string){
+    this.ruta.navigate(['/evoluciones',nombre]);
+  }
 
 }

@@ -45,22 +45,33 @@
                 <p>{{item.getBaseStat()}}</p>
               </div>
             </div>
-            <div class="col-6 d-none">
+            <div class="col-6"  *ngFor="let item of habilidades">
               <div class="car-info-pokemon-stats">
-                <img src="" alt="">
-                <p>{{pokemon.getWeight()}}</p>
+                <span>Habilidad +</span>
+                <p class="text-capitalize">{{item.habilidad}}</p>
               </div>
             </div>
-            <div class="col-6 d-none">
+            <div class="col-6">
               <div class="car-info-pokemon-stats">
-                <img src="" alt="">
+                <span>Experiencia Base</span>
                 <p>{{pokemon.getBase_experience()}}</p>
               </div>
             </div>
-            <div class="col-6 d-none">
+            <div class="col-6">
               <div class="car-info-pokemon-stats">
-                <img src="" alt="">
-                <p>{{pokemon.getHeight()}}</p>
+                <span>Peso</span>
+                <p>{{pokemon.getWeight()}} <span style="color: black; font-size: 12px; text-transform: lowercase;">lb</span></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="car-info-pokemon-stats">
+                <span>Tamaño</span>
+                <p>{{pokemon.getHeight()}} <span style="color: black; font-size: 12px; text-transform: lowercase;">ft</span></p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="car-info-pokemon-stats">
+                <button (click)="rutaEvolucion(pokemon.getName())" class="btn btn-danger">Más Info</button>
               </div>
             </div>
           </div>
