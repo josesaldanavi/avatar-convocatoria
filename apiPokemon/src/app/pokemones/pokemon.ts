@@ -5,7 +5,6 @@ export class Pokemon{
     private height: number=0;
     private weight: number=0;
     private foto: string='';
-    private tipo: string[]=[];
 
     public setid(id:number) {
         this.id=id;
@@ -47,11 +46,5 @@ export class Pokemon{
         return this.foto;
     }
     
-    public setTipos(tipo:string[]) {
-        this.tipo=tipo;
-    }
-    public getTipos() {
-        return this.tipo;
-    }
 
 }

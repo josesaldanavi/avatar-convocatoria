@@ -18,6 +18,8 @@ export class EvolucionesComponent implements OnInit {
   evoluciones: Evolucion[]=[];
   pokemon: any;
   pokemones: Pokemon[]=[]
+  pokemones2: Pokemon[]=[]
+  pokemones3: Pokemon[]=[]
   urlpokeite:string='';
 
   constructor(private pokemoservice:PokemonService) { }
@@ -29,14 +31,7 @@ export class EvolucionesComponent implements OnInit {
           this.evolucionesURL.push(elemento.url)
         });
         this.pintandoPokemones();
-        console.log(this.evoluciones);
  
-        for (let index = 0; index < this.evoluciones.length; index++) {
-          this.capturaPokemon(this.evoluciones[index].getSpeciesName_e1());
-          this.capturaPokemon(this.evoluciones[index].getSpeciesName_e2());
-          this.capturaPokemon(this.evoluciones[index].getSpeciesName_e3());
-          //console.log(this.urlpokeite);
-        }
         console.log(this.pokemones);
         
       }
@@ -59,15 +54,15 @@ export class EvolucionesComponent implements OnInit {
               });
             });
             //this.evoluciones.push(this.evolucionEspecie);
-            this.capturaPokemon(this.evolucionEspecie.getSpeciesName_e1())
-            this.capturaPokemon(this.evolucionEspecie.getSpeciesName_e2())
-            this.capturaPokemon(this.evolucionEspecie.getSpeciesName_e3())
+            this.capturaPokemonEv1(this.evolucionEspecie.getSpeciesName_e1())
+            this.capturaPokemonEv2(this.evolucionEspecie.getSpeciesName_e2())
+            this.capturaPokemonEv3(this.evolucionEspecie.getSpeciesName_e3())
           }
         );
       //console.log(this.urlpokeite);
     }
   }
-  capturaPokemon(url :string){
+  capturaPokemonEv1(url :string){
     this.pokemoservice.getEspecies(this.urlPokemon+url+"/").subscribe(
       (data)=>{
         this.pokemon=new Pokemon();
@@ -78,6 +73,26 @@ export class EvolucionesComponent implements OnInit {
     );
 
   }
+  capturaPokemonEv2(url :string){
+    this.pokemoservice.getEspecies(this.urlPokemon+url+"/").subscribe(
+      (data)=>{
+        this.pokemon=new Pokemon();
+        this.pokemon.setName(data.name);
+        this.pokemon.setFoto(data.sprites.front_default);
+        this.pokemones2.push(this.pokemon);
+      }
+    );
 
+  }capturaPokemonEv3(url :string){
+    this.pokemoservice.getEspecies(this.urlPokemon+url+"/").subscribe(
+      (data)=>{
+        this.pokemon=new Pokemon();
+        this.pokemon.setName(data.name);
+        this.pokemon.setFoto(data.sprites.front_default);
+        this.pokemones3.push(this.pokemon);
+      }
+    );
+
+  }
 
 }

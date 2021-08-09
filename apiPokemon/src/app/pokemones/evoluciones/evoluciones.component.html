@@ -2,20 +2,36 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">1era Evolución</th>
-            <th scope="col">2da Evolución</th>
-            <th scope="col">3era Evolución</th>
+            <th scope="col">Foto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Evolucion</th>
           </tr>
         </thead>
         <tbody>
                   <!--Limitando la entrada de data en el table - Se mostrara solo 10 elementos y luego se paginara si este tiene data de sobra-->
           <tr *ngFor="let pokemon of pokemones">
             <th scope="row">
-              <div>
                 <img src="" srcset="{{pokemon.getFoto()}}" alt="" width="80px">
-                {{pokemon.getName()}}
-              </div>
+                
             </th>
+            <th>{{pokemon.getName()}}</th>
+            <th>No evolucionado</th>
+          </tr>
+          <tr *ngFor="let pokemon of pokemones2">
+            <th scope="row">
+                <img src="" srcset="{{pokemon.getFoto()}}" alt="" width="80px">
+                
+            </th>
+            <th>{{pokemon.getName()}}</th>
+            <th>2da evolucion</th>
+          </tr>
+          <tr *ngFor="let pokemon of pokemones3">
+            <th scope="row">
+                <img src="" srcset="{{pokemon.getFoto()}}" alt="" width="80px">
+                
+            </th>
+            <th>{{pokemon.getName()}}</th>
+            <th>3era evolucion</th>
           </tr>
         </tbody>
       </table>
