@@ -9,7 +9,7 @@ export class Evolucion {
     public setSpeciesName_e1(name:string) {
         this.species_name_e1=name;
     }
-    public getSpeciesName_e1(name:string) {
+    public getSpeciesName_e1() {
         return this.species_name_e1;
     }
 
@@ -17,7 +17,7 @@ export class Evolucion {
     public setSpeciesName_e2(name:string) {
         this.species_name_e2=name;
     }
-    public getSpeciesName_e2(name:string) {
+    public getSpeciesName_e2() {
         return this.species_name_e2;
     }
 
@@ -26,7 +26,7 @@ export class Evolucion {
         this.species_name_e3=name;
     }
 
-    public getSpeciesName_e3(name:string) {
+    public getSpeciesName_e3() {
         return this.species_name_e3;
     }
 }

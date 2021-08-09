@@ -16,7 +16,7 @@
         <!--Limitando la entrada de data en el table - Se mostrara solo 10 elementos y luego se paginara si este tiene data de sobra-->
         <tr *ngFor="let especie of especies | paginate: { itemsPerPage: 10, currentPage: page}">
           <th scope="row">{{especie.name}}</th>
-          <td> <button class="btn mostrarpokemon" (click)="showPokemonEspecie(especie.url)">Mostrar</button></td>
+          <td> <button class="btn mostrarpokemon" (click)="showPokemonEspecie(especie.url)">Mais Información</button></td>
         </tr>
       </tbody>
     </table>
